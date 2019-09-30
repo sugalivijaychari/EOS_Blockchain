@@ -1,0 +1,50 @@
+# NOTE: Below are the series of commands used to trace the Ballot contract. Don't use credentials that are used here.
+
+  272  mkdir ballot
+  273  cd ballot/
+  274  ls
+  275  touch ballot.cpp
+  276  cleos wallet list
+  277  cleos wallet lunlock
+  278  cleos wallet unlock
+  279  cleos wallet list
+  280  cleos get accounts EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  281  cleos create account eosio ballot EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx -p eosio@active
+  282  cleos create account eosio chair EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  283  cleos create account eosio voter1 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  284  cleos create account eosio voter2 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  285  cleos create account eosio voter3 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  286  cleos create account eosio voter4 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  287  cleos create account eosio voter5 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  288  cleos create account eosio voter6 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  289  cleos get accounts EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  290  eosio-cpp ballot.cpp -o ballot.wasm
+  291  ls
+  292  cleos wallet list
+  293  cleos wallet unlock
+  294  cleos wallet list
+  295  cleos get accounts EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+  296  pwd
+  297  cleos set contract ballot /home/eosio/Desktop/contracts/eosio.contracts/contracts/ballot
+  298  cleos push action ballot setowner '["chair",2]' -p chair@active
+  299  cleos get table ballot ballot chairs --lower chair --limit 1
+  300  cleos get table ballot ballot voters --lower chair --limit 1
+  301  cleos push action ballot adcontestant '["chair","voter1"]' -p chair@active
+  302  cleos get table ballot ballot contestants --lower chair --limit 1
+  303  cleos push action ballot adcontestant '["chair","voter2"]' -p chair@active
+  304  cleos get table ballot ballot contestants --lower chair --limit 1
+  305  cleos get table ballot ballot contestants --lower chair --limit 2
+  306  cleos push action ballot ballot addvoter '["chair","voter3"]' -p chair@active
+  307  cleos push action ballot addvoter '["chair","voter3"]' -p chair@active
+  308  cleos push action ballot addvoter '["chair","voter4"]' -p chair@active
+  309  cleos push action ballot addvoter '["chair","voter5"]' -p chair@active
+  310  cleos get table ballot ballot voterss --lower chair --limit 10
+  311  cleos get table ballot ballot voters --lower chair --limit 10
+  312  cleos wallet list
+  313  cleos push action ballot vote '["voter3","voter1"]' -p voter3@active
+  314  cleos push action ballot vote '["voter4","voter1"]' -p voter4@active
+  315  cleos push action ballot vote '["voter5","voter2"]' -p voter5@active
+  316  cleos push action winner '["voter1"]' -p voter1@active
+  317  cleos push action ballot winner '["voter1"]' -p voter1@active
+
+
