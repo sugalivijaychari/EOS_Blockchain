@@ -1,0 +1,211 @@
+# NOTE: Credentials use in this document are private and local. Don't try to use them.
+
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get accounts EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+{
+  "account_names": [
+    "abcounter",
+    "addressbook",
+    "alice",
+    "bob",
+    "hello"
+  ]
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio ballot EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx -p eosio@active
+executed transaction: e09a214494a49100ad2c7881c73be2208be6c0ca9babb51a0d8c3db2b94489e0  200 bytes  199 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"ballot","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio chair EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: 0acd6d4e9dabd4188259aaa1e386eafdef9cc5d4047ab8cb0af659f1820328e0  200 bytes  163 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"chair","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoVQ...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio voter1 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: 28d376b2578527c8e422028bd24ee9ebc03333880b8d37742a8d443456eabcd5  200 bytes  210 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"voter1","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio voter2 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: ed3ef3de435b152b02e71bb1bb6d9eea5e6366c12338ebcdc8a883256565e5c8  200 bytes  140 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"voter2","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio voter3 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: 488faff383c0e7b69c9990d7096d2c8c5d0fc09e99385215b6220515bd2ad6b9  200 bytes  177 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"voter3","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio voter4 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: ec2fef4c9e043e8117a95b7a214cec55bb4423ddfeb6fbc84ff1483ad4001362  200 bytes  179 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"voter4","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos create account eosio voter5 EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+executed transaction: 18d37c7e5d06d4db9188397a6303ac99f37eb8e31c4b487f1e334229d43cbb4d  200 bytes  141 us
+#         eosio <= eosio::newaccount            {"creator":"eosio","name":"voter5","owner":{"threshold":1,"keys":[{"key":"EOS5JdCYeditaDyfiomgCkKzoV...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get accounts EOS5JdCYeditaDyfiomgCkKzoVQ224Pmeizsotdr7YftvYzKEWDsx
+{
+  "account_names": [
+    "abcounter",
+    "addressbook",
+    "alice",
+    "ballot",
+    "bob",
+    "chair",
+    "hello",
+    "voter1",
+    "voter2",
+    "voter3",
+    "voter4",
+    "voter5"
+  ]
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ eosio-cpp ballot.cpp -o ballot.wasm
+Warning, empty ricardian clause file
+Warning, empty ricardian clause file
+Warning, action <setowner> does not have a ricardian contract
+Warning, action <adcontestant> does not have a ricardian contract
+Warning, action <addvoter> does not have a ricardian contract
+Warning, action <vote> does not have a ricardian contract
+Warning, action <winner> does not have a ricardian contract
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ ls
+ballot.abi  ballot.cpp  ballot.wasm
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ pwd
+/home/eosio/Desktop/contracts/eosio.contracts/contracts/ballot
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos set contract ballot /home/eosio/Desktop/contracts/eosio.contracts/contracts/ballot
+Reading WASM from /home/eosio/Desktop/contracts/eosio.contracts/contracts/ballot/ballot.wasm...
+Publishing contract...
+executed transaction: 9bea15581ac44820691181be2ddeea0e8b25c562368eebdc5ddb22197a4f1969  6728 bytes  1010 us
+#         eosio <= eosio::setcode               {"account":"ballot","vmtype":0,"vmversion":0,"code":"0061736d01000000019d011a6000006000017f60027f7f0...
+#         eosio <= eosio::setabi                {"account":"ballot","abi":"0e656f73696f3a3a6162692f312e3100080c6164636f6e74657374616e740002047573657...
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot setowner '["chair",2]' -p chair@active
+executed transaction: 0cde0ff889c300a86ad91bae8d95e5a0f17d33a147d3c9d68c103b2271aecba4  112 bytes  250 us
+#        ballot <= ballot::setowner             {"user":"chair","length":2}
+>> chair is set as CEO to conduct ballot elections. Now, chair he can add contestants.No. of contestants in ballot election is: 2Dear chair , you got vote power.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot chairs --lower chair --limit 1
+{
+  "rows": [{
+      "ceo": "chair",
+      "c_length": 2
+    }
+  ],
+  "more": false
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot voters --lower chair --limit 1
+{
+  "rows": [{
+      "voter_name": "chair",
+      "weight": 1,
+      "voted": 0,
+      "vote": ""
+    }
+  ],
+  "more": false
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot adcontestant '["chair","voter1"]' -p chair@active
+executed transaction: 0be1db670f16f0ea162aefeabfb93fb51f7f5e6f42d1db8975898e70523c8fcd  112 bytes  249 us
+#        ballot <= ballot::adcontestant         {"user":"chair","c_name":"voter1"}
+>> Contestant voter1 is added into ballot elections.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot contestants --lower chair --limit 1
+{
+  "rows": [{
+      "c_name": "voter1",
+      "votescount": 0
+    }
+  ],
+  "more": false
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot adcontestant '["chair","voter2"]' -p chair@active
+executed transaction: de619febd417ef1c8e3a2d524dd31a8842dfde8c508d8a55746f017059d1a8f7  112 bytes  281 us
+#        ballot <= ballot::adcontestant         {"user":"chair","c_name":"voter2"}
+>> Contestant voter2 is added into ballot elections.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot contestants --lower chair --limit 1
+{
+  "rows": [{
+      "c_name": "voter1",
+      "votescount": 0
+    }
+  ],
+  "more": true
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot contestants --lower chair --limit 2
+{
+  "rows": [{
+      "c_name": "voter1",
+      "votescount": 0
+    },{
+      "c_name": "voter2",
+      "votescount": 0
+    }
+  ],
+  "more": false
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot addvoter '["chair","voter3"]' -p chair@active
+executed transaction: 6f5ccd488d1de24f805462999147fde1c9a9bac2c8a2ed98f36a96a25fa0f61b  112 bytes  246 us
+#        ballot <= ballot::addvoter             {"user":"chair","v_name":"voter3"}
+>> Voter voter3 got power to vote.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot addvoter '["chair","voter4"]' -p chair@active
+executed transaction: bc9b9fb64f3545afeaddcd70637373dba8871bb4be8e8a7f6f724d480b474523  112 bytes  215 us
+#        ballot <= ballot::addvoter             {"user":"chair","v_name":"voter4"}
+>> Voter voter4 got power to vote.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot addvoter '["chair","voter5"]' -p chair@active
+executed transaction: ba53610d538d9f180252f854bfb9ccd40953821b81e948f35d0cdfdaf9d7fce5  112 bytes  193 us
+#        ballot <= ballot::addvoter             {"user":"chair","v_name":"voter5"}
+>> Voter voter5 got power to vote.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos get table ballot ballot voters --lower chair --limit 10
+{
+  "rows": [{
+      "voter_name": "chair",
+      "weight": 1,
+      "voted": 0,
+      "vote": ""
+    },{
+      "voter_name": "voter3",
+      "weight": 1,
+      "voted": 0,
+      "vote": ""
+    },{
+      "voter_name": "voter4",
+      "weight": 1,
+      "voted": 0,
+      "vote": ""
+    },{
+      "voter_name": "voter5",
+      "weight": 1,
+      "voted": 0,
+      "vote": ""
+    }
+  ],
+  "more": false
+}
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos wallet list
+Wallets:
+[
+  "default *"
+]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot vote '["voter3","voter1"]' -p voter3@active
+executed transaction: a9aec388c871048f080eec05ecb02df565389cd77fc02d4b7a115adcfd047087  112 bytes  242 us
+#        ballot <= ballot::vote                 {"user":"voter3","to":"voter1"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot vote '["voter4","voter1"]' -p voter4@active
+executed transaction: 5f0f44da31c0ae4238b42ab7771d795b0c14af0a3212546a7e17ccdb935f9893  112 bytes  192 us
+#        ballot <= ballot::vote                 {"user":"voter4","to":"voter1"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot vote '["voter5","voter2"]' -p voter5@active
+executed transaction: 6fb9c3737ab10c07fad2f155ccc1f05ab30d5e0d524681aac0a9d5056bfae4a8  112 bytes  182 us
+#        ballot <= ballot::vote                 {"user":"voter5","to":"voter2"}
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+eosio@eosio-VirtualBox:~/Desktop/contracts/eosio.contracts/contracts/ballot$ cleos push action ballot winner '["voter1"]' -p voter1@active
+executed transaction: 0ace741abaacd877812087d55091026782b21b1d001586bac181d03ec9ce26d2  104 bytes  449 us
+#        ballot <= ballot::winner               {"user":"voter1"}
+>> The contestant - voter1 won the ballot elections with 2 votes.
+warning: transaction executed locally, but may not be confirmed by the network yet         ]
+
+
+
+
+
+
+
