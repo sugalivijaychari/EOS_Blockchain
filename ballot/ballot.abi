@@ -1,0 +1,175 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "adcontestant",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "c_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "addvoter",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "v_name",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "chair",
+            "base": "",
+            "fields": [
+                {
+                    "name": "ceo",
+                    "type": "name"
+                },
+                {
+                    "name": "c_length",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "contestant",
+            "base": "",
+            "fields": [
+                {
+                    "name": "c_name",
+                    "type": "name"
+                },
+                {
+                    "name": "votescount",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "setowner",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "length",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "vote",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "voter",
+            "base": "",
+            "fields": [
+                {
+                    "name": "voter_name",
+                    "type": "name"
+                },
+                {
+                    "name": "weight",
+                    "type": "uint64"
+                },
+                {
+                    "name": "voted",
+                    "type": "bool"
+                },
+                {
+                    "name": "vote",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "winner",
+            "base": "",
+            "fields": [
+                {
+                    "name": "user",
+                    "type": "name"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "adcontestant",
+            "type": "adcontestant",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "addvoter",
+            "type": "addvoter",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "setowner",
+            "type": "setowner",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "vote",
+            "type": "vote",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "winner",
+            "type": "winner",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "chairs",
+            "type": "chair",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "contestants",
+            "type": "contestant",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "voters",
+            "type": "voter",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
